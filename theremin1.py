@@ -8,6 +8,6 @@ sensor = DistanceSensor(echo=17,trigger=4)
 sender = udp_client.SimpleUDPClient('127.0.0.1', 4559)
 
 while True:
-    pitch = round(sensor.distance * 100 + 30)
+    pitch = sensor.distance * 5000.0
     sender.send_message('/play_this', pitch)
     sleep(0.1)
